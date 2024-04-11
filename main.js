@@ -1,31 +1,24 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { sosSocket } from './socket'
-import { targetPlayer } from './boost'
+import "./style.css";
 
-console.log("Starting...")
+import { sosSocket } from "./socket";
+
+import { setTargetPlayerBoost, targetPlayer } from "./boost";
+
+console.log("Starting...");
 
 sosSocket.onmessage = (event) => {
-  console.log(event.data)
-}
+  console.log(event.data);
+};
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+sosSocket.onmessage = (event) => {
+  console.log(event.data);
 
+  const parsed = JSON.parse(event.data);
 
+  if (parsed.event === "game:update_state") {
+    if (parsed.data.game.hasTarget) {
+      const targetPlayer = parsed.data.players[parsed.data.game.target];
+      setTargetPlayerBoost(targetPlayer.boost);
+    }
+  }
+};
