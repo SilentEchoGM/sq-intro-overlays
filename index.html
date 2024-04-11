@@ -1,13 +1,35 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+
+<body>
+
+  <script type="module" src="/main.js"></script>
+
+  <div id="target-player">
+    <div class="boost">
+      <div id="target-boost-bg"></div>
+      <div id="target-boost-track-outer"></div>
+      <div id="target-boost-track-inner"></div>
+      <svg viewbox="0 0 160 160" id="target-boost-svg">
+        <circle r="71" cx="80" cy="80" id="target-boost-track-fill">
+
+        </circle>
+      </svg>
+      <div id="target-boost-value-border">
+        <div id="target-boost-value"></div>
+      </div>
+
+    </div>
+  </div>
+
+
+</body>
+
 </html>
