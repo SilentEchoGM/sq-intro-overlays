@@ -2,8 +2,13 @@ import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { sosSocket } from './socket'
+import { targetPlayer } from './boost'
 
 console.log("Starting...")
+
+sosSocket.onmessage = (event) => {
+  console.log(event.data)
+}
 
 document.querySelector('#app').innerHTML = `
   <div>
