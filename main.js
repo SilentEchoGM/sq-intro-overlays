@@ -22,6 +22,10 @@ sosSocket.onmessage = (event) => {
       setTargetPlayerBoost(targetPlayer.boost);
     }
 
-
+    getTeamNames().then(setTeamNames)
+    setTeamScores({
+      blue: parsed.data.game.teams[0].score,
+      orange: parsed.data.game.teams[1].score
+    })
   }
 };
