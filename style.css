@@ -4,6 +4,10 @@
   font-family: "Inter";
 }
 
+* {
+  box-sizing: border-box;
+}
+
 #target-boost-bg {
 
   box-sizing: border-box;
@@ -91,4 +95,75 @@
   font-size: 48px;
   text-align: center;
   width: 100px;
+}
+
+.scorebug {
+  color: white;
+  position: absolute;
+  font-family: Inter;
+  left: 400px;
+  width: 1000px;
+  height: 96px;
+  top: 16px;
+  background: #373d4a;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 400px 200px 400px;
+}
+
+.team {
+  background: #212327;
+  width: 400px;
+  height: 96px;
+  border-width: 3px;
+  border-style: solid;
+  display: grid;
+  align-items: center;
+}
+
+.team#blue {
+  border-radius: 8px 0 0 8px;
+  border-color: #1f94e9;
+  grid-template-columns: 1fr 96px;
+}
+
+.team#orange {
+  border-radius: 0 8px 8px 0;
+  border-color: #fd8b39;
+  grid-template-columns: 96px 1fr;
+}
+
+.team #score-bg {
+  height: 100%;
+  text-align: center;
+  font-size: 64px;
+  font-weight: bold;
+  display: flex;
+  place-content: center;
+  align-items: center;
+}
+
+.team#blue #score-bg {
+  background: #1f94e9;
+}
+
+.team#orange #score-bg {
+  background: #fd8b39;
+}
+
+.team #name {
+  font-size: 38px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+
+.team#blue #name {
+  text-align: right;
+  padding-right: 32px;
+}
+
+.team#orange #name {
+  text-align: left;
+  padding-left: 32px;
 }

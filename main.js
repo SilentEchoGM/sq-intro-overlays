@@ -3,6 +3,7 @@ import "./style.css";
 import { sosSocket } from "./socket";
 
 import { setTargetPlayerBoost, targetPlayer } from "./boost";
+import { getTeamNames, setTeamNames, setTeamScores } from "./teams";
 
 console.log("Starting...");
 
@@ -20,5 +21,7 @@ sosSocket.onmessage = (event) => {
       const targetPlayer = parsed.data.players[parsed.data.game.target];
       setTargetPlayerBoost(targetPlayer.boost);
     }
+
+
   }
 };
