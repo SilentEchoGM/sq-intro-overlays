@@ -1,6 +1,5 @@
-export const getTeamNames = async () => (await (
-    await fetch("/teams.json")
-).json()).body
+export const getTeamNames = async () =>
+    (await fetch("/teams.json")).json()
 
 export const setTeamNames = (teamNames = { blue: "BLUE", orange: "ORANGE" }) => {
     document.querySelector(".team#blue #name").innerHTML = teamNames.blue
