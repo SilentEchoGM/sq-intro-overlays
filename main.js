@@ -2,7 +2,8 @@ import "./style.css";
 
 import { sosSocket } from "./socket";
 
-import { setTargetPlayerBoost, targetPlayer } from "./boost";
+import { setTargetPlayerBoost } from "./boost";
+import { setClock } from "./clock";
 import { getTeamNames, setTeamNames, setTeamScores } from "./teams";
 
 console.log("Starting...");
@@ -22,10 +23,13 @@ sosSocket.onmessage = (event) => {
       setTargetPlayerBoost(targetPlayer.boost);
     }
 
-    getTeamNames().then(setTeamNames)
+    getTeamNames().then(setTeamNames);
+
     setTeamScores({
       blue: parsed.data.game.teams[0].score,
-      orange: parsed.data.game.teams[1].score
-    })
+      orange: parsed.data.game.teams[1].score,
+    });
+
+    setClock(parsed.data.game.time_seconds, parsed.data.game.isOT);
   }
 };
