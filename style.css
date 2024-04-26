@@ -109,6 +109,7 @@
   border-radius: 8px;
   display: grid;
   grid-template-columns: 400px 200px 400px;
+  align-items: center;
 }
 
 .team {
@@ -166,4 +167,10 @@
 .team#orange #name {
   text-align: left;
   padding-left: 32px;
+}
+
+.clock {
+  font-weight: bold;
+  font-size: 48px;
+  text-align: center;
 }
