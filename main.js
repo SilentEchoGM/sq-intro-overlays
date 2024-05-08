@@ -5,16 +5,11 @@ import { sosSocket } from "./socket";
 import { setTargetPlayerBoost } from "./boost";
 import { setClock } from "./clock";
 import { getTeamNames, setTeamNames, setTeamScores } from "./teams";
+import { updateTeamPlayerHtml } from "./team-players";
 
 console.log("Starting...");
 
 sosSocket.onmessage = (event) => {
-  console.log(event.data);
-};
-
-sosSocket.onmessage = (event) => {
-  console.log(event.data);
-
   const parsed = JSON.parse(event.data);
 
   if (parsed.event === "game:update_state") {
@@ -31,5 +26,7 @@ sosSocket.onmessage = (event) => {
     });
 
     setClock(parsed.data.game.time_seconds, parsed.data.game.isOT);
+
+    updateTeamPlayerHtml(parsed.data.players);
   }
 };

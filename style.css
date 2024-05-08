@@ -2,6 +2,16 @@
 
 .body {
   font-family: "Inter";
+  color: white;
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
 }
 
 * {
@@ -101,7 +111,7 @@
   color: white;
   position: absolute;
   font-family: Inter;
-  left: 400px;
+  left: 460px;
   width: 1000px;
   height: 96px;
   top: 16px;
@@ -173,4 +183,93 @@
   font-weight: bold;
   font-size: 48px;
   text-align: center;
+}
+
+.team-players {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 16px;
+  gap: 6px;
+}
+
+.team-players#blue {
+  left: 24px;
+}
+
+.team-players#orange {
+  right: 24px;
+}
+
+.player {
+  position: relative;
+  background: #212327;
+  overflow: hidden;
+  border-radius: 4px;
+  width: 240px;
+  height: 41px;
+}
+
+.player #boost-track {
+  position: absolute;
+  background: #373d4a;
+  height: 8px;
+  width: 100%;
+  bottom: 0px;
+}
+
+.player #boost-fill {
+  position: absolute;
+  height: 100%;
+  width: 20%;
+}
+
+#blue .player #boost-fill {
+  background: #1f94e9;
+  left: 0;
+}
+
+#orange .player #boost-fill {
+  background: #fd8b39;
+  right: 0;
+}
+
+.team-players .player {
+  display: grid;
+  grid-template-rows: 1fr 8px;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.team-players#blue .player {
+  grid-template-columns: 1fr 32px;
+  color: #1f94e9;
+}
+
+.team-players#orange .player {
+  grid-template-columns: 32px 1fr;
+  color: #fd8b39;
+  grid-auto-flow: dense;
+}
+
+.team-players#orange .player #name {
+  order: 1;
+  text-align: right;
+}
+
+.team-players .player #name {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+
+.team-players .player #boost-value {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.team-players #boost-fill {
+  transition: width 0.1s;
 }
